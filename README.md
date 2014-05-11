@@ -1,7 +1,5 @@
 
 
-### belaunch 해커톤
+### beLAUNCHXHackathon 2014 MonkeyBand
 
-스키장터 주저리 주저리
-
-
+#### 스키장Ter
