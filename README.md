@@ -9,6 +9,8 @@ Expecially, car pool in SkijangTer is very special because it can pick up many p
 
 You can make your winter vacation perfect using SkijangTer!!
 
-##### Made by
+##### Made by MonkeyBand in beLAUNCHXHackathon 2014
 Devdesigner : Myung Hwa Jo, Jun Hyup Song, Kyung Joo Lee
 Developer : Jae Won Seo, Gawck Myung Hwa, Aleum Kim
+
+For the win!
