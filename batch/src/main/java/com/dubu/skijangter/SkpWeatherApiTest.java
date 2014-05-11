@@ -4,7 +4,6 @@ import com.google.gson.*;
 import org.apache.commons.httpclient.Header;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.GetMethod;
-import org.apache.commons.httpclient.methods.PostMethod;
 
 import java.io.IOException;
 
@@ -13,12 +12,9 @@ import java.io.IOException;
  * Date: 14. 5. 11
  * Time: 오전 9:23
  */
-public class WeatherApiTest {
+public class SkpWeatherApiTest {
 
     public static void main(String[] args) {
-
-
-
 
         String url = "http://apis.skplanetx.com/weather/current/hourly?lon=126.9658000000&village=&county=&lat=37.5714000000&city=&version=1";
         GetMethod getMethod = new GetMethod(url);
@@ -63,67 +59,22 @@ public class WeatherApiTest {
             String result =  getPage1.getResponseBodyAsString();
             System.out.println(result);
 
-          // Gson gson = new Gson();
-
             JsonElement jelement = new JsonParser().parse(result);
             JsonObject jobject = jelement.getAsJsonObject();
 
-//            JsonElement jelement2 = new JsonParser().parse(jobject);
-//            JsonObject jobject2 = jelement.getAsJsonObject();
-//            jobject = jobject2.getAsJsonObject("forecast6days");
-
             jobject = jobject.getAsJsonObject("weather");
             JsonArray jarray = jobject.getAsJsonArray("forecast6days");
-
-
-
             jobject = jarray.get(0).getAsJsonObject();
             JsonObject obj1 = jobject.get("sky").getAsJsonObject();
-            //Result.Weather.Forecast6days.Sky;
-            //skys  = gson.fromJson(jobject.getAsJsonObject("sky"), Result.Weather.Forecast6days.Sky.class);
 
             String str = obj1.get("amName2day").toString();
 
-
-
-
-
             System.out.println(str);
-
-
-
-//            Forecast.Weather  w =  forecast.getWeather();
-//             w.forecast6days
-
-
-
-
-
-
-           //W gson.fromJson(gson);
-
 
         } catch (IOException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
 
-
     }
-
-
-    public String parse(String jsonLine) {
-        JsonElement jelement = new JsonParser().parse(jsonLine);
-        JsonObject jobject = jelement.getAsJsonObject();
-        jobject = jobject.getAsJsonObject("result");
-
-
-        JsonArray jarray = jobject.getAsJsonArray("translations");
-        jobject = jarray.get(0).getAsJsonObject();
-
-
-        String result = jobject.get("translatedText").toString();
-        return result;
-    }
-
 
 }
